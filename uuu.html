@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html><!--👋👋👋👋-->
+
+<body>
+    <div class="🤗">
+    <h1>fun fishing project or steal IP</h1>
+    </div>
+    <button onclick="show_magic()">Show My IP</button>
+</body>
+
+<style>
+    .🤗{  background-color: tomato;
+  color: white;
+  border: 2px solid black;
+  margin: 20px;
+  padding: 20px;
+}
+#👀{  background-color: yellow;
+    border: 2px solid black;
+  margin: 20px;
+  padding: 20px;
+}
+
+
+</style>
+
+
+</html><!--👋👋👋👋--> 
+
+<script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
+
+<script> //🔥🔥🔥🔥 Storing IP in variable "x"
+    var x;
+    fetch ('https://api.ipify.org/?format=json')
+    .then(result => result.json())
+    .then((data) => {console.log(data.ip);
+           x = data.ip;
+    });
+
+    function show_magic(){
+    const g = document.createElement('p');
+    g.setAttribute("id", "👀");
+    g.innerHTML = x;
+    document.body.appendChild(g);
+    
+    const socket = io('http://localhost:3000/');
+    socket.on('connection',socket.emit('IP', x))
+    }
+    
+</script><!--🔥🔥🔥🔥-->
+
+
+
+

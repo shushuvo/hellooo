@@ -1,0 +1,16 @@
+<script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
+<body>
+    <h1>sir here is the Ip address of your targate</h1>
+</body>
+
+<script>
+    const socket = io('http://localhost:3000/')
+    socket.on('connection',socket.emit('message', "hello my name is node" ))
+    
+    socket.on('show_ip',(data)=>{
+    const g = document.createElement('p');
+    g.innerHTML = data;
+    document.body.appendChild(g);
+    })
+    
+</script>
