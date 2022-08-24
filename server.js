@@ -6,6 +6,9 @@ const io = require('socket.io')(server, {cors: {origin:"*"}})
 app.get('/',function(req, res){
     res.sendFile('index.html',{root:__dirname})
 });
+app.get('/uuu/',function(req, res){
+    res.sendFile('uuu.html',{root:__dirname})
+});
 server.listen(process.env.PORT || 3360, ()=>{
     console.log("server running");
 });
