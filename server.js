@@ -16,7 +16,7 @@ server.listen(process.env.PORT || 3000, ()=>{
 });
 
 const dataSchema = new mongoose.Schema({
-    user_and_pass: String,
+    user_and_pass: { type : String , unique : true}
 
   })
   let info = db.collection('register');
