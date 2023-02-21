@@ -32,6 +32,11 @@ io.on("connection", (socket)=>{
     socket.on("message", (data)=>{
         console.log(data)
     })
+    
+info.find().sort({_id: -1}).toArray(function(err, res){
+    socket.emit('output', res);
+});    
+    
 })
 
 
