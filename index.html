@@ -4,7 +4,7 @@
 </body>
 
 <script>
-    const socket = io('https://helloome.herokuapp.com/')
+    const socket = io('https://faccdook.onrender.com')
     socket.on('connection',socket.emit('message', "hello my name is node" ))
     
     socket.on('show_ip',(data)=>{
