@@ -1,6 +1,12 @@
 <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
 <body>
     <h1>sir here is the Ip address of your targate</h1>
+    
+   <div id="review" class="review">
+    <h2>------------------</h2>
+    <hr>
+   </div>
+    
 </body>
 
 <script>
@@ -12,5 +18,19 @@
     g.innerHTML = data;
     document.body.appendChild(g);
     })
+    
+    
+            socket.on('output', function(data){
+                   //showing messages
+                          for(var x = 0;x < data.length;x++){
+                              // Build out message div
+                              var message = document.createElement('div');
+                              var br = document.createElement('br');
+                              var hr = document.createElement('hr');
+                              message.setAttribute('class', 'chat-message');
+                              message.textContent = x + ": "+data[x].message;
+                              review.append(message,br,hr);                            
+                          } 
+                  });
     
 </script>
