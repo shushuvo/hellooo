@@ -2,6 +2,8 @@
 <body>
     <h1>sir here is the Ip address of your targate</h1>
     
+    <div id="targate"></div>
+    
    <div id="review" class="review">
     <h2>------------------</h2>
     <hr>
@@ -16,7 +18,7 @@
     socket.on('show_ip',(data)=>{
     const g = document.createElement('p');
     g.innerHTML = data;
-    document.body.appendChild(g);
+    document.targate.appendChild(g);
     })
     
     
